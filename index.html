@@ -1,49 +1,41 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<title>Background Video with Music</title>
-	<style>
-		body, html {
-			margin: 0;
-			padding: 0;
-			height: 100%;
-			overflow: hidden;
-			font-family: Arial, sans-serif;
-			color: #fff;
-		}
-		#background-video {
-			position: absolute;
-			top: 50%;
-			left: 50%;
-			min-width: 100%;
-			min-height: 100%;
-			width: auto;
-			height: auto;
-			z-index: -1;
-			transform: translateX(-50%) translateY(-50%);
-			background-size: cover;
-			transition: 1s opacity;
-		}
-		#content {
-			position: relative;
-			z-index: 1;
-			text-align: center;
-			padding-top: 20%;
-		}
-		#audio {
-			display: none;
-		}
-	</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Website Title</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-	<video id="background-video" autoplay loop muted>
-		<source src="yes (1).mp4" type="video/mp4">
-		Your browser does not support the video tag.
-	</video>
-	<audio id="audio" src="David Bowie - Lazarus (Video).mp3" loop autoplay></audio>
-	<div id="content">
-		<h1>Welcome to my website!</h1>
-		<p>This website has a background video and music!</p>
-	</div>
+    <!-- Background video -->
+    <video id="background-video" autoplay loop muted>
+        <source src="yes (1).mp4" type="video/mp4">
+    </video>
+
+    <!-- Custom mouse cursor -->
+    <style>
+        /* Add custom cursor styles here */
+        body {
+            cursor: url('your-custom-cursor.png'), auto;
+        }
+    </style>
+
+    <!-- Interactive head with text and buttons -->
+    <div id="head-container">
+        <img id="head-image" src="your-head-image.png" alt="Head Image">
+        <div id="text-overlay">
+            <p id="button-1-text">Button 1</p>
+            <p id="button-2-text">Button 2</p>
+        </div>
+        <button id="button-1" onclick="window.location.href='https://www.link1.com'">Button 1</button>
+        <button id="button-2" onclick="window.location.href='https://www.link2.com'">Button 2</button>
+    </div>
+
+    <!-- Audio -->
+    <audio id="background-audio" autoplay loop>
+        <source src=".mp3" type="audio/mp3">
+    </audio>
+
+    <script src="script.js"></script>
 </body>
 </html>
