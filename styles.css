@@ -40,3 +40,19 @@
 #button-1:hover, #button-2:hover {
     background-color: #555;
 }
+
+#background-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+
+@media (max-width: 768px) {
+  #background-video {
+    object-fit: contain;
+  }
+}
