@@ -6,10 +6,10 @@
     }
 
     document.addEventListener('contextmenu', function (event) {
-        event.preventDefault()
+        event.preventDefault();
     });
 
-    $(window).on('keydown', function () {
+    $(window).on('keydown', function (event) {
         if (event.keyCode == 123)
             return false;
         else if (event.ctrlKey && event.shiftKey && event.keyCode == 73)
@@ -31,23 +31,21 @@
     });
 
     var next = function () {
-
         timeouts.forEach(function (timeout) {
             clearTimeout(timeout);
         });
 
         $(".startthing").remove();
-        
+
         setTimeout(function () {
-            var typed = new Typed("#Bruh",
-                {
-                    strings: app.Texts,
-                    typeSpeed: 40,
-                    backDelay: 500,
-                    onComplete: function() {
-                        return $("span").siblings(".typed-cursor").css("opacity", "0");
-                    }
-                });
+            var typed = new Typed("#Bruh", {
+                strings: app.Texts,
+                typeSpeed: 40,
+                backDelay: 500,
+                onComplete: function() {
+                    $("span").siblings(".typed-cursor").css("opacity", "0");
+                }
+            });
         }, 1350);
 
         setTimeout(function () {
@@ -56,14 +54,18 @@
             app.videoElement.addEventListener("timeupdate", function () {
                 $.cookie('videoTime', app.videoElement.currentTime, { expires: 1 });
             }, false);
-            
-            $('.navbar').css('visibility','visible').hide().fadeIn(500);
-            $('.background').css('visibility','visible').hide().fadeIn(500);
-            $('.main').css('visibility','visible').hide().fadeIn(500);
+
+            $('.navbar').css('visibility', 'visible').hide().fadeIn(500);
+            $('.background').css('visibility', 'visible').hide().fadeIn(500);
+            $('.main').css('visibility', 'visible').hide().fadeIn(500);
 
             $('.background').fadeIn(200, function () {
                 $("#background").animate({ volume: app.musicVolume }, app.musicFadeIn);
             });
         }, 200);
     }
-})()
+
+    // Call the next function immediately to clear the timeout and start the process
+    next();
+
+})();
